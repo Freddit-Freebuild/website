@@ -2,8 +2,9 @@ websites_dir=/var/www
 
 rsync-excludes = --exclude=*.sh --exclude=.gitignore
 
-ifeq($(WEBSITE),)
+ifeq ($(WEBSITE),)
 	WEBSITE = freddit.net
+endif
 
 update:
 	@echo "Updating website $(WEBSITE)..."
