@@ -1,11 +1,10 @@
 body {
-    background-image: url('assets/spr_rpcity.png');
+    background-color: rgb(29, 27, 37);
 }
 main {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgb(29, 27, 37);
     border-radius: 5px;
 }
 code {
