@@ -17,6 +17,7 @@ code {
     font-family: 'Courier New', Courier, monospace;
     color: yellow;
     text-shadow: 0 0 5px goldenrod;
+    padding-top: 10px;
 }
 .card button {
     color: goldenrod;
