@@ -27,12 +27,14 @@ const serverStatusCardHTML = (server_name, server_address, status, map_url, play
                 <div class="card-header">
                     <img src="${mcapi}/favicon/${server_address}" alt="Server icon" style="width: 16px; height: 16px;">
                     ${server_name}
-                    <div class="badge bg-${status === 'online' ? 'success' : 'danger'}">${status}</div>
                     ${version ? `<span class="badge bg-secondary">${version}</span>` : ''}
+                    <div class="badge bg-${status === 'online' ? 'success' : 'danger'}">${status === 'online' ? 'O' : 'X'}</div>
                 </div>
                 <div class="card-body">
-                    <p>${players} player${players !== 1 ? 's' : ''} online</p>
-                    <button class="btn btn-sm btn-outline-primary" onclick="window.open('${map_url}')">Map</button>
+                    <div class="d-flex justify-content-between">
+                        <p>${players} player${players !== 1 ? 's' : ''} online</p>
+                        <button class="btn btn-sm btn-outline-primary" onclick="window.open('${map_url}')">Map</button>
+                    </div>
                 </div>
                 <div class="card-footer" onclick="copyToClipboard('${server_address}')" style="cursor: pointer;">
                     <code>${server_address}</code>
@@ -51,5 +53,46 @@ servers.forEach(server => {
         $('#server-status').append(serverStatusCardHTML(server.name, server.address, 'online', server.map_url, data.players.online, data.version.name))
     }).fail(function() {
         $('#server-status').append(serverStatusCardHTML(server.name, server.address, 'offline', server.map_url, 0))
+    })
+})
+
+$(function() {
+    const ENDOFTHEWORLD = new Date("jun 09, 2069 06:09:00").getTime();
+
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = ENDOFTHEWORLD - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        days = days < 10 ? `0${days}` : days;
+        hours = hours < 10 ? `0${hours}` : hours;
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+        $('#countdown-timer').html(`${days} : ${hours} : ${minutes} : ${seconds}`);
+
+        if (distance < 0) {
+            clearInterval(x);
+            $('#countdown-timer').html("...?");
+        }
+    }, 1000);
+
+    const orbitalLinks = [
+        "https://www.youtube.com/watch?v=6X3DsTZuRC4",
+        "https://www.youtube.com/watch?v=zZct-itCwPE",
+        "https://youtu.be/YVxpZQOG_lo?si=0IorRTV8dG0ir0n4",
+        "https://www.youtube.com/watch?v=R5YJuesDa9Y",
+        "https://www.youtube.com/watch?v=Wl9_JnweumI",
+        "https://orbital.freddit.net",
+        "https://orbital.freddit.net"
+    ]
+
+    $('#footer-orbital').on('click', function() {
+        const rand = Math.floor(Math.random() * orbitalLinks.length)
+        window.open(orbitalLinks[rand])
     })
 })

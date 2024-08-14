@@ -7,3 +7,14 @@ code {
     border-radius: 4px;
     padding: 2px 4px;
 }
+#countdown {
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    user-select: none;
+}
+#countdown-timer {
+    font-family: 'Courier New', Courier, monospace;
+    color: lime;
+    text-shadow: 0 0 5px lime;
+}
