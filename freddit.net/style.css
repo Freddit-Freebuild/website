@@ -15,7 +15,7 @@ code {
 }
 #countdown-timer {
     font-family: 'Courier New', Courier, monospace;
-    color: goldenrod;
+    color: yellow;
     text-shadow: 0 0 5px goldenrod;
 }
 .card button {
