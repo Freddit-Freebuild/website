@@ -28,7 +28,7 @@ const serverStatusCardHTML = (server_name, server_address, status, map_url, play
                     <img src="${mcapi}/favicon/${server_address}" alt="Server icon" style="width: 16px; height: 16px;">
                     ${server_name}
                     ${version ? `<span class="badge bg-secondary">${version}</span>` : ''}
-                    <div class="badge bg-${status === 'online' ? 'success' : 'danger'}">${status === 'online' ? 'O' : 'X'}</div>
+                    <div class="badge bg-${status === 'online' ? 'success' : 'danger'}">${status === 'online' ? 'ON' : 'OFF'}</div>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
