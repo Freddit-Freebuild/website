@@ -15,6 +15,13 @@ code {
 }
 #countdown-timer {
     font-family: 'Courier New', Courier, monospace;
-    color: lime;
-    text-shadow: 0 0 5px lime;
+    color: goldenrod;
+    text-shadow: 0 0 5px goldenrod;
+}
+.card button {
+    color: goldenrod;
+    border: 1px solid goldenrod;
+}
+.card-footer code {
+    color: goldenrod;
 }
